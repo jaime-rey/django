@@ -29,12 +29,14 @@
   </div>
 </div>
 
-<p>{{ my_text }}, {{ my_number }}</p>
+<p>{{ my_text|upper }}, {{ my_number }}</p>
 
 <ul>
   {% for item in my_list %}
   {% if item == 123 %}
-  <div class="text-2xl">La grande</div>
+  <div class="text-2xl">La grande - {{ item|add:22 }}</div>
+  {% else %}
+  <div class="text-2xl">La chica - {{ item|add:-22 }}</div>
   {% endif %}
   <li>{{ forloop.counter }} - {{ item }}</li>
   {% endfor %}
